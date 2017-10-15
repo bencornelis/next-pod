@@ -1,9 +1,14 @@
 import React from 'react';
+import ReactAudioPlayer from 'react-audio-player';
 
 function PodcastPlayer(props) {
   return(
     <div>
-      Make sure we have {props.title}!
+      {props.title}
+      <ReactAudioPlayer
+        src={props.mp3}
+        autoplay
+        controls />
     </div>
   );
 }

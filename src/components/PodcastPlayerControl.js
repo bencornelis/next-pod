@@ -9,7 +9,8 @@ class PodcastPlayerControl extends Component {
       <div>
         <Link to="/">Back to search</Link>
         <PodcastPlayer
-          title={this.props.episode.title} />
+          title={this.props.episode.title}
+          mp3={this.props.episode.mp3} />
       </div>
     )
   }
