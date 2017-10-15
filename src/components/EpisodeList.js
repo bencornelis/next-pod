@@ -1,11 +1,11 @@
 import React from 'react';
-import EpisodeBlurb from './EpisodeBlurb';
+import Episode from './Episode';
 
 function EpisodeList(props) {
   return (
     <div>
       {props.episodes.map((episode, index) =>
-        <EpisodeBlurb
+        <Episode
           key={index}
           title={episode.title}
           description={episode.description}

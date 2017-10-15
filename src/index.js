@@ -4,6 +4,7 @@ import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
 import reducer from './reducers';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
@@ -20,7 +21,9 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <HashRouter>
+      <App />
+    </HashRouter>
   </Provider>,
   document.getElementById('root')
 );

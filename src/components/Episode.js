@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Episode(props) {
   return (
     <div>
-      {props.title}
+      <Link to="/player">{props.title}</Link>
     </div>
   )
 }

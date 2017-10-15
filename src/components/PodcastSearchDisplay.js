@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Header from './Header';
 import Podcast from './Podcast';
 
 function PodcastSearchDisplay(props) {
   return (
     <div>
+      <Header />
       <Podcast
         title={props.podcast.title}
         artist={props.podcast.artist}
