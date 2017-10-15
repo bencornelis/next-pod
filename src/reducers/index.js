@@ -17,11 +17,11 @@ export default (state = defaultState, action) => {
       });
     }
     case types.LOAD_EPISODE: {
-      const { title, description, length, mp3, pubDate } = action;
+      const { title, description, length, mp3, pubDate, imageUrl } = action;
       return Object.assign({}, state, {
         player: {
           episode: {
-            title, description, length, mp3, pubDate
+            title, description, length, mp3, pubDate, imageUrl
           }
         }
       });

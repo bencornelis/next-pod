@@ -1,7 +1,7 @@
 import React from 'react';
 import './../styles/App.css';
 import PodcastSearchDisplay from './PodcastSearchDisplay';
-import PodcastPlayerControl from './PodcastPlayerControl';
+import PodcastPlayer from './PodcastPlayer';
 import { Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className='app'>
       <Switch>
         <Route exact path="/" component={PodcastSearchDisplay} />
-        <Route path="/player" component={PodcastPlayerControl} />
+        <Route path="/player" component={PodcastPlayer} />
       </Switch>
     </div>
   );

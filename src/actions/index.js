@@ -50,9 +50,10 @@ export const fetchFeed = (title, artist, imageUrl, feedUrl, dispatch) => {
       description: entry.content,
       length: entry.enclosure.length,
       mp3: entry.guid,
-      pubDate: entry.pubDate
+      pubDate: entry.pubDate,
+      imageUrl
     }));
-
+    
     dispatch(
       receivePodcast(title, artist, imageUrl, website, description, episodes)
     );

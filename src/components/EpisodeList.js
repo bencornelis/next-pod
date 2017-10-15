@@ -12,6 +12,7 @@ function EpisodeList(props) {
           mp3={episode.mp3}
           length={episode.length}
           pubDate={episode.pubDate}
+          imageUrl={episode.imageUrl}
           loadEpisode={props.loadEpisode} />
       )}
     </div>
