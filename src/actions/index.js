@@ -53,7 +53,7 @@ export const fetchFeed = (title, artist, imageUrl, feedUrl, dispatch) => {
       pubDate: entry.pubDate,
       imageUrl
     }));
-    
+
     dispatch(
       receivePodcast(title, artist, imageUrl, website, description, episodes)
     );
@@ -65,3 +65,13 @@ export const loadEpisode = episode => {
     type: types.LOAD_EPISODE
   });
 }
+
+// Podcast Player
+
+export const playPodcast = () => ({
+  type: types.PLAY_PODCAST
+})
+
+export const pausePodcast = () => ({
+  type: types.PAUSE_PODCAST
+});

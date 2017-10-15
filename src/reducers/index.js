@@ -20,12 +20,27 @@ export default (state = defaultState, action) => {
       const { title, description, length, mp3, pubDate, imageUrl } = action;
       return Object.assign({}, state, {
         player: {
+          playing: true,
           episode: {
             title, description, length, mp3, pubDate, imageUrl
           }
         }
       });
     }
+    case types.PAUSE_PODCAST:
+      return Object.assign({}, state, {
+        player: {
+          episode: state.player.episode,
+          playing: false
+        }
+      });
+    case types.PLAY_PODCAST:
+      return Object.assign({}, state, {
+        player: {
+          episode: state.player.episode,
+          playing: true
+        }
+      });
     default:
       return state;
   }

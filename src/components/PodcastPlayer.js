@@ -4,19 +4,31 @@ import './../styles/PodcastPlayer.css';
 import FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
 import ReactHowler from 'react-howler';
+import { playPodcast, pausePodcast } from './../actions'
 
 class PodcastPlayer extends Component {
   constructor(props) {
     super(props);
-    this.logPlayer = this.logPlayer.bind(this);
+    this.play = this.play.bind(this);
+    this.pause = this.pause.bind(this);
   }
 
-  logPlayer() {
-    console.log(this.player);
+  play() {
+    this.props.dispatch(playPodcast());
+  }
+
+  pause() {
+    this.props.dispatch(pausePodcast());
   }
 
   render() {
-    console.log(this.props.episodeMP3);
+    let playOrPauseButton;
+    if (this.props.playing) {
+      playOrPauseButton = <FontAwesome name='pause' size='3x' onClick={this.pause} />
+    } else {
+      playOrPauseButton = <FontAwesome name='play' size='3x' onClick={this.play} />
+    }
+
     return(
       <div>
         <Link to="/">Back to search</Link>
@@ -31,12 +43,12 @@ class PodcastPlayer extends Component {
         </div>
         <ReactHowler
           src={this.props.episodeMP3}
-          playing={true}
+          playing={this.props.playing}
           html5={true}
           ref={(ref) => (this.player = ref)}
         />
         <div>
-          <FontAwesome name='play' size='3x' onClick={this.logPlayer} />
+          {playOrPauseButton}
         </div>
       </div>
     );
@@ -47,6 +59,7 @@ const mapStateToProps = state => ({
   episodeTitle: state.player.episode.title,
   episodeMP3: state.player.episode.mp3,
   podcastImageUrl: state.player.episode.imageUrl,
+  playing: state.player.playing
 });
 
 export default connect(mapStateToProps)(PodcastPlayer);
