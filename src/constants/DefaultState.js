@@ -1,1 +1,4 @@
-export const defaultState = {}
+export const defaultState = {
+  isFetching: false,
+  podcastSearchResult: {}
+}

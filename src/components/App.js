@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from './../styles/App.css';
+import Header from './Header';
+import PodcastSearchDisplay from './PodcastSearchDisplay';
 
-class App extends Component {
-  render() {
-    return (
-      <div className={styles.app}>
-        Hello world!
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className={styles.app}>
+      <Header />
+      <PodcastSearchDisplay />
+    </div>
+  );
 }
 
 export default App;

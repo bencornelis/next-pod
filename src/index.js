@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from './styles/index.css';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware } from 'redux';
