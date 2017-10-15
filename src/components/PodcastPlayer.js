@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
-class PodcastPlayer extends Component {
-  render() {
-    return(
-      <div>
-        <Link to="/">Back to search</Link>
-      </div>
-    )
-  }
+function PodcastPlayer(props) {
+  return(
+    <div>
+      Make sure we have {props.title}!
+    </div>
+  );
 }
 
 export default PodcastPlayer;

@@ -1,2 +1,3 @@
 export const REQUEST_PODCAST = 'REQUEST_PODCAST';
 export const RECEIVE_PODCAST = 'RECEIVE_PODCAST';
+export const LOAD_EPISODE    = 'LOAD_EPISODE';

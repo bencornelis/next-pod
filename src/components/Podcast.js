@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './../styles/Podcast.css';
 import EpisodeList from './EpisodeList';
+import { loadEpisode } from './../actions'
+import { connect } from 'react-redux';
 
-function Podcast(props) {
-  return (
-    <div className='podcast'>
-      <h2>{props.title}</h2>
-      <div><img className='image' src={props.imageUrl} /></div>
-      <div>
-        <h2>{props.title}</h2>
-        <p>{props.description}</p>
+class Podcast extends Component {
+  constructor(props) {
+    super(props);
+    this.loadEpisodeIntoPlayer = this.loadEpisodeIntoPlayer.bind(this);
+  }
+
+  loadEpisodeIntoPlayer(episode) {
+    this.props.dispatch(loadEpisode(episode));
+  }
+
+  render() {
+    return (
+      <div className='podcast'>
+        <h2>{this.props.title}</h2>
+        <div><img className='image' src={this.props.imageUrl} /></div>
+        <div>
+          <h2>{this.props.title}</h2>
+          <p>{this.props.description}</p>
+        </div>
+        <EpisodeList
+          episodes={this.props.episodes}
+          loadEpisode={this.loadEpisodeIntoPlayer}/>
       </div>
-      <EpisodeList episodes={props.episodes}/>
-    </div>
-  );
+    );
+  }
 }
 
-export default Podcast;
+export default connect()(Podcast);

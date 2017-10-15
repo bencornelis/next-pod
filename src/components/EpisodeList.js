@@ -9,8 +9,10 @@ function EpisodeList(props) {
           key={index}
           title={episode.title}
           description={episode.description}
+          mp3={episode.mp3}
           length={episode.length}
-          pubDate={episode.pubDate} />
+          pubDate={episode.pubDate}
+          loadEpisode={props.loadEpisode} />
       )}
     </div>
   )

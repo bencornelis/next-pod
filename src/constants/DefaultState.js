@@ -1,4 +1,7 @@
 export const defaultState = {
   isFetching: false,
-  podcastSearchResult: {}
+  podcastSearchResult: {},
+  player: {
+    episode: {}
+  }
 }

@@ -32,12 +32,12 @@ export const requestPodcast = () => ({
 
 export const receivePodcast = (title, artist, imageUrl, website, description, episodes) => ({
   type: types.RECEIVE_PODCAST,
-  title: title,
-  artist: artist,
-  imageUrl: imageUrl,
-  website: website,
-  description: description,
-  episodes: episodes
+  title,
+  artist,
+  imageUrl,
+  website,
+  description,
+  episodes
 });
 
 export const fetchFeed = (title, artist, imageUrl, feedUrl, dispatch) => {
@@ -56,5 +56,11 @@ export const fetchFeed = (title, artist, imageUrl, feedUrl, dispatch) => {
     dispatch(
       receivePodcast(title, artist, imageUrl, website, description, episodes)
     );
+  });
+}
+
+export const loadEpisode = episode => {
+  return Object.assign({}, episode, {
+    type: types.LOAD_EPISODE
   });
 }
