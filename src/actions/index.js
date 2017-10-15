@@ -1,4 +1,5 @@
 import * as types from './../constants/ActionTypes';
+import parser from 'rss-parser';
 
 export const fetchPodcast = (searchTerm) => {
   return function (dispatch) {
@@ -17,7 +18,7 @@ export const fetchPodcast = (searchTerm) => {
         const imageUrl = podcast.artworkUrl600;
         const feedUrl  = podcast.feedUrl;
 
-        dispatch(receivePodcast(title, artist, imageUrl));
+        fetchFeed(title, artist, imageUrl, feedUrl, dispatch);
       } else {
         console.log('Could not find podcast.');
       }
@@ -29,9 +30,31 @@ export const requestPodcast = () => ({
   type: types.REQUEST_PODCAST
 });
 
-export const receivePodcast = (title, artist, imageUrl) => ({
+export const receivePodcast = (title, artist, imageUrl, website, description, episodes) => ({
   type: types.RECEIVE_PODCAST,
   title: title,
   artist: artist,
-  imageUrl: imageUrl
+  imageUrl: imageUrl,
+  website: website,
+  description: description,
+  episodes: episodes
 });
+
+export const fetchFeed = (title, artist, imageUrl, feedUrl, dispatch) => {
+  return parser.parseURL(feedUrl, (error, parsed) => {
+    const feed = parsed.feed;
+    const website = feed.link;
+    const description = feed.description;
+    const episodes = feed.entries.map(entry => ({
+      title: entry.title,
+      description: entry.content,
+      length: entry.enclosure.length,
+      mp3: entry.guid,
+      pubDate: entry.pubDate
+    }));
+
+    dispatch(
+      receivePodcast(title, artist, imageUrl, website, description, episodes)
+    );
+  });
+}

@@ -13,7 +13,10 @@ export default (state = defaultState, action) => {
         podcastSearchResult: {
           title: action.title,
           artist: action.artist,
-          imageUrl: action.imageUrl
+          imageUrl: action.imageUrl,
+          website: action.website,
+          description: action.description,
+          episodes: action.episodes
         }
       });
     default:

@@ -8,29 +8,22 @@ function PodcastSearchDisplay(props) {
       <Podcast
         title={props.podcast.title}
         artist={props.podcast.artist}
-        imageUrl={props.podcast.imageUrl} />
+        imageUrl={props.podcast.imageUrl}
+        episodes={props.podcast.episodes} />
     </div>
   );
 }
 
 const mapStateToProps = state => {
-  let podcastInfo;
-  const podcast = state.podcastSearchResult;
-  if (podcast.isFetching || !podcast) {
-    podcastInfo = {
-      title: '',
-      artist: '',
-      imageUrl: ''
-    };
-  } else {
-    podcastInfo = {
-      title: podcast.title,
-      artist: podcast.artist,
-      imageUrl: podcast.imageUrl
-    };
-  }
+  const podcastResult = state.podcastSearchResult;
+  const podcast = {
+    title: podcastResult.title || '',
+    artist: podcastResult.artist || '',
+    imageUrl: podcastResult.imageUrl || '',
+    episodes: podcastResult.episodes || []
+  };
   return {
-    podcast: podcastInfo
+    podcast: podcast
   }
 }
 

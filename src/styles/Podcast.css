@@ -1,0 +1,9 @@
+.podcast {
+  margin: 50px 0;
+}
+
+.image {
+  margin: 0 auto;
+  max-height: 500px;
+  max-width: 500px;
+}
