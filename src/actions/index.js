@@ -75,3 +75,8 @@ export const playPodcast = () => ({
 export const pausePodcast = () => ({
   type: types.PAUSE_PODCAST
 });
+
+export const updatePosition = newPosition => ({
+  type: types.UPDATE_POSITION,
+  newPosition: newPosition
+});

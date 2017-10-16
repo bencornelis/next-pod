@@ -1,9 +1,41 @@
-.player-image {
+.progress-bar {
+  display: block;
+  width: 400px;
   margin: 0 auto;
-  max-height: 300px;
-  max-width: 300px;
+  border: 1px solid grey;
+  background: white;
+  height: 20px;
 }
 
-.hidden {
-  display: none;
+.progress-bar::-webkit-progress-bar {
+  box-shadow: none;
+  background: white;
+}
+
+.progress-bar::-webkit-progress-value {
+  background: #fc7e0f;
+}
+
+.progress-bar:hover {
+  cursor: pointer;
+}
+
+.player-image {
+  display: block;
+  margin: 0 auto;
+  height: 400px;
+  width: 400px;
+}
+
+.control-panel {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.control {
+  margin: 20px 40px 20px 40px;
+}
+
+.control:hover {
+  cursor: pointer;
 }
